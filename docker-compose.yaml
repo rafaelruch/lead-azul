@@ -25,7 +25,7 @@ services:
       dockerfile: ./Dockerfile
     environment:
       - URL_BACKEND=backend:3000
-      - REACT_APP_BACKEND_URL=https://testapi.ruch.com.br/
+      - VITE_BACKEND_URL=https://testapi.ruch.com.br/
       - FRONTEND_SERVER_NAME=test.ruch.com.br
       - BACKEND_SERVER_NAME=testapi.ruch.com.br
     volumes:
