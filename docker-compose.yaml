@@ -1,6 +1,3 @@
-networks:
-  whaticket:
-
 services:
 
   backend:
@@ -21,8 +18,6 @@ services:
     volumes:
       - ./backend/public/:/usr/src/app/public/
       - ./backend/.wwebjs_auth/:/usr/src/app/.wwebjs_auth/
-    networks:
-      - whaticket
 
   frontend:
     build:
@@ -36,8 +31,6 @@ services:
     volumes:
       - ./ssl/certs/:/etc/nginx/ssl/
       - ./ssl/www/:/var/www/letsencrypt/
-    networks:
-      - whaticket
 
   mysql:
     image: mariadb:10.6
@@ -49,5 +42,3 @@ services:
       - MYSQL_ROOT_PASSWORD=b48eb506d00f8219ae738316cdde8114a08b953b
       - TZ=America/Fortaleza
     restart: always
-    networks:
-      - whaticket
