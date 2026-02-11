@@ -18,8 +18,6 @@ services:
       - FRONTEND_URL=${FRONTEND_URL:-http://localhost:3000}
       - PROXY_PORT=${PROXY_PORT:-8080}
       - CHROME_ARGS=--no-sandbox --disable-setuid-sandbox
-    ports:
-      - ${BACKEND_PORT:-8080}:3000
     volumes:
       - ./backend/public/:/usr/src/app/public/
       - ./backend/.wwebjs_auth/:/usr/src/app/.wwebjs_auth/
@@ -27,9 +25,6 @@ services:
       - whaticket
 
   frontend:
-    ports:
-      - ${FRONTEND_PORT:-3000}:80
-      - ${FRONTEND_SSL_PORT:-3001}:443
     build:
       context: ./frontend
       dockerfile: ./Dockerfile
@@ -53,8 +48,6 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE:-whaticket}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-strongpassword}
       - TZ=${TZ:-America/Fortaleza}
-    ports:
-      - ${MYSQL_PORT:-3306}:3306
     restart: always
     networks:
       - whaticket
