@@ -10,8 +10,8 @@ services:
     environment:
       - DB_HOST=mysql
       - DB_USER=root
-      - DB_PASS=dd111cdaeb8474fd86c6
-      - DB_NAME=db-lead-azul
+      - DB_PASS=strongpassword
+      - DB_NAME=whaticket
       - JWT_SECRET=${JWT_SECRET:-3123123213123}
       - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET:-75756756756}
       - BACKEND_URL=${BACKEND_URL:-http://localhost}
@@ -45,10 +45,8 @@ services:
     volumes:
       - ./.docker/data/:/var/lib/mysql
     environment:
-      - MYSQL_DATABASE=db-lead-azul
-      - MYSQL_USER=mariadb
-      - MYSQL_PASSWORD=f24161c447862a763666
-      - MYSQL_ROOT_PASSWORD=dd111cdaeb8474fd86c6
+      - MYSQL_DATABASE=whaticket
+      - MYSQL_ROOT_PASSWORD=strongpassword
       - TZ=America/Fortaleza
     restart: always
     networks:
