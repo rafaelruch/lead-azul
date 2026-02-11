@@ -14,7 +14,7 @@ services:
       - DB_NAME=db-lead-azul
       - JWT_SECRET=${JWT_SECRET:-3123123213123}
       - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET:-75756756756}
-      - BACKEND_URL=https://app.test.ruch.com.br
+      - BACKEND_URL=https://testapi.ruch.com.br
       - FRONTEND_URL=https://test.ruch.com.br
       - PROXY_PORT=443
       - CHROME_ARGS=--no-sandbox --disable-setuid-sandbox
@@ -30,9 +30,9 @@ services:
       dockerfile: ./Dockerfile
     environment:
       - URL_BACKEND=backend:3000
-      - REACT_APP_BACKEND_URL=https://app.test.ruch.com.br/
+      - REACT_APP_BACKEND_URL=https://testapi.ruch.com.br/
       - FRONTEND_SERVER_NAME=test.ruch.com.br
-      - BACKEND_SERVER_NAME=app.test.ruch.com.br
+      - BACKEND_SERVER_NAME=testapi.ruch.com.br
     volumes:
       - ./ssl/certs/:/etc/nginx/ssl/
       - ./ssl/www/:/var/www/letsencrypt/
